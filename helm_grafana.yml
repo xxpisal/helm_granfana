@@ -5,24 +5,17 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://grafana.github.io/helm-charts
-    chart: grafana
-    targetRevision: 8.8.2
-    helm:
-      releaseName: grafana
-      valueFiles:
-        - values.yaml
-      values: |
-        adminUser: admin
-        adminPassword: changeme
-        persistence:
-          enabled: true
-          size: 10Gi
-        service:
-          type: ClusterIP
-        ingress:
-          enabled: false
+  sources:
+    - repoURL: https://grafana.github.io/helm-charts
+      chart: grafana
+      targetRevision: 8.8.2
+      helm:
+        releaseName: grafana
+        valueFiles:
+          - $values/helm_grafana.yml
+    - repoURL: https://github.com/<your-org>/<your-repo>.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
