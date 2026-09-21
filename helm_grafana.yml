@@ -13,7 +13,7 @@ spec:
         releaseName: grafana
         valueFiles:
           - $values/helm_grafana.yml
-    - repoURL: https://github.com/<your-org>/<your-repo>.git
+    - repoURL: https://github.com/<your-username>/<your-repo>.git
       targetRevision: main
       ref: values
   destination:
