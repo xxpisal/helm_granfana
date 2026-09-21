@@ -13,8 +13,8 @@ spec:
         releaseName: grafana
         valueFiles:
           - $values/helm_grafana.yml
-    - repoURL: https://github.com/<your-username>/<your-repo>.git
-      targetRevision: main
+    - repoURL: https://github.com/xxpisal/helm_granfana.git
+      targetRevision: master
       ref: values
   destination:
     server: https://kubernetes.default.svc
